@@ -71,6 +71,7 @@ class NerdLauncherActivity : AppCompatActivity() {
             val activityInfo = resolveInfo.activityInfo
             val intent = Intent(Intent.ACTION_MAIN).apply {
                 setClassName(activityInfo.applicationInfo.packageName, activityInfo.name)
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)//为intent添加新任务标志
             }
             val context = view.context
             context.startActivity(intent)
