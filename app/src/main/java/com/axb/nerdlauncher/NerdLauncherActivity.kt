@@ -65,6 +65,13 @@ class NerdLauncherActivity : AppCompatActivity() {
             val packageManager = itemView.context.packageManager
             val appName = resolveInfo.loadLabel(packageManager).toString()
             nameTextView.text = appName
+
+
+            /*挑战练习： 显示应用图标*/
+            val appIcon = resolveInfo.loadIcon(packageManager)
+            //appIcon.setBounds(0, 0, appIcon.minimumWidth, appIcon.minimumHeight)
+            appIcon.setBounds(0, 0, 96, 96)
+            nameTextView.setCompoundDrawables(appIcon, null, null, null)
         }
 
         override fun onClick(view: View) {
